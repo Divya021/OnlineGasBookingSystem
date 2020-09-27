@@ -1,0 +1,66 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<style>
+    button {
+  background-color: DarkSlateGrey;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+input ,[type=text],[type=password],[type=number],select,textarea,[type=submit] {
+    border:2px solid blue;
+    width:60%;
+  }
+.button2 {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+<div class="container">
+       <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center">ASSIGN STATUS</h1>
+
+        <form action="" method="post">
+        {% csrf_token %}
+    </center>
+
+            <center style="font-size:20px;margin-top:50px">Booking Status:<br></center>
+                        <center><select name="bookstatus">
+                                <option value="" disabled selected>Choose Status</option>
+                                <option value="confirmed">confirmed</option>
+                                <option value="on the way">on the way</option>
+                                <option value="canceled">canceled</option>
+
+                        </select>
+                              <center style="font-size:20px;margin-top:50px">Assign To:<br></center>
+                        <center><select name="assignto">
+                                <option value="" disabled selected>Choose Status</option>
+                                <option value="jogindar">jogindar</option>
+                                <option value="mahendra">Mahendra</option>
+                                <option value="yogendra">Yogendra</option>
+
+                        </select>
+<center style="font-size:20px;margin-top:50px">Cost<br></center>
+                            <input type="text" placeholder="cost" name="cost" style="height:40px">
+                            <button type="submit" style="width:60%;height:50px" class="btn btn-primary">Submit</button></center>
+
+    </form>
+</center>
+</div>
+
+{% endblock %}

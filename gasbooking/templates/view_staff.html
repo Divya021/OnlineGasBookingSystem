@@ -1,0 +1,49 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Menage Staff </h1>
+
+</center>
+ <div class="container" style="margin-top:60px;width:90%">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Staff Id</th>
+    <th> Name</th>
+    <th>Email Id</th>
+    <th>Mobile </th>
+    <th>Address </th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+
+  <tr >
+        <td style="background-color:DarkSlateGrey;color:white">{{forloop.counter}}</td>
+        <td style="background-color:DarkSlateGrey;color:white">{{i.staffid}}</td>
+        <td style="background-color:DarkSlateGrey;color:white">{{i.name}}</td>
+        <td style="background-color:DarkSlateGrey;color:white">{{i.email}}</td>
+        <td style="background-color:DarkSlateGrey;color:white">{{i.mobile}}</td>
+        <td style="background-color:DarkSlateGrey;color:white">{{i.address}}</td>
+
+      <td style="background-color:DarkSlateGrey;color:white"> <a href="{% url 'edit_staff' i.id %}"> <i class="glyphicon glyphicon-edit"></i>  <a href="{% url 'delete_staff' i.id %}"><span style="margin-left:12px" ><i class="glyphicon glyphicon-trash"></i> </span> </a>
+
+  </tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+  {% for i in message %}
+  alert("{{i}}")
+  {% endfor %}
+</script>
+
+{% endblock %}

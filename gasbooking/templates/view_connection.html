@@ -1,0 +1,219 @@
+{% extends 'user_nav.html' %}
+{% load static %}
+{% block body %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<style>
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+.prjdiv:hover{
+transform:translateY(-10px)
+}
+div .container1{
+
+width:100%;
+background-color:lightgrey;
+border-radius:8px;
+}
+h2, h4{
+ padding:10Px;
+}
+button{
+ width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+.vl{
+border-left:3px solid red;
+height:500px;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            Registration Number
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.registration}}
+        </div>
+        {% endfor %}
+         <div class="col-md-3">
+            Mobile Number
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.user.mobile}}
+        </div>
+        {% endfor %}
+    </div>
+    <hr style="background-color:red;height:2px;color:red">
+    <div class="row">
+        <div class="col-md-3">
+            Name
+        </div>
+
+        <div class="col-md-3">
+            {{request.user.username}}
+        </div>
+         <div class="col-md-3">
+           Email
+        </div>
+
+        <div class="col-md-3">
+            {{request.user.email}}
+        </div>
+
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+     <div class="row">
+        <div class="col-md-3">
+          Gender
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.gen}}
+        </div>
+        {% endfor %}
+        <div class="col-md-3">
+          Nationality
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.nationality}}
+        </div>
+	{% endfor %}
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+     <div class="row">
+        <div class="col-md-3">
+           Married Status
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.merriedstatus}}
+        </div>
+        {% endfor %}
+        <div class="col-md-3">
+          Address
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.address}}
+        </div>
+	{% endfor %}
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+<div class="row">
+        <div class="col-md-3">
+         Address proof/ID Proof
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.img.url}}
+        </div>
+        {% endfor %}
+        <div class="col-md-3">
+          Applied Date
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.date}}
+        </div>
+	{% endfor %}
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+<h3 style="color:Blue;font-size:5px bold" align="center"> Spouse / Father Information</h3>
+       <hr style="background-color:red;height:2px;color:red">
+  <div class="row">
+        <div class="col-md-3">
+        First Name
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.fname}}
+        </div>
+        {% endfor %}
+        <div class="col-md-3">
+          Last Name
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.lname}}
+        </div>
+	{% endfor %}
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+
+
+  <div class="row">
+        <div class="col-md-3">
+       City
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.city}}
+        </div>
+        {% endfor %}
+        <div class="col-md-3">
+        Zipcode
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.zipcode}}
+        </div>
+	{% endfor %}
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+  <div class="row">
+        <div class="col-md-3">
+      Connection Status
+        </div>
+        {% for i in data1 %}
+        <div class="col-md-3">
+            {{i.connection}}
+        </div>
+        {% endfor %}
+
+  </div>
+       <hr style="background-color:red;height:2px;color:red">
+          <button  style="background-color:blue" > <a href="{% url 'edit_connection' %}" style="color:white">Edit Detail</a></button>
+
+</div>
+
+{% endblock %}

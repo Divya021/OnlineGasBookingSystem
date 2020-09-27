@@ -1,0 +1,123 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+
+ <div class="container" style="margin-top:10px;width:100%">
+
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;font-family : 'Monotype Corsiva" align="center">Response History </h1>
+
+</center>
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Delivary Boy</th>
+    <th>Reffiling Cost</th>
+    <th>Status</th>
+    <th>Response Time</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data1 %}
+
+
+  <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.assignto}}</td>
+        <td>{{i.reffercost}}</td>
+        <td>{{i.bookstatus}}</td>
+        <td>{{i.responsetime}}</td>
+
+  </tr>
+
+   {% endfor %}
+
+
+    </tbody>
+</table>
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Book History </h1>
+
+</center>
+<table  class="table table-bordered" id="myTable">
+<thead style="background-color:white">
+<tr>
+    <th style=" background-color:red">Booking Number</th>
+      {% for i in data1 %}
+
+       <th style=" background-color:red;color:white">{{i.booknumber}}</th>
+
+      {% endfor %}
+  </tr>
+  <tr>
+    <th style=" background-color:red">Connection Number</th>
+      {% for i in data1 %}
+
+       <td  style=" background-color:red;color:white">{{i.user.registration}}</td>
+
+      {% endfor %}
+  </tr>
+ <tr>
+    <th>Reffiling Size</th>
+        {% for i in data1 %}
+
+       <th >{{i.gassize}}</th>
+
+      {% endfor %}
+  </tr>
+  <tr>
+    <th>Cunsumer Name</th>
+        {% for i in data1 %}
+
+       <th >{{i.user.user.user.username}}</th>
+
+      {% endfor %}
+  </tr>
+    <tr>
+    <th> Cunsumer Mobile Number</th>
+        {% for i in data1 %}
+
+    <th>{{i.user.user.mobile}}</th>
+
+        {% endfor %}
+
+    </tr>
+  <tr>
+    <th> cunsumer Email Id</th>
+     {% for i in data1 %}
+
+    <th>{{i.user.user.user.email}}</th>
+
+        {% endfor %}
+  </tr>
+<tr>
+    <th>Shipping Address</th>
+     {% for i in data1 %}
+
+    <th>{{i.user.address}}</th>
+
+        {% endfor %}
+  </tr>
+ <tr>
+    <th>Order Final Status</th>
+        {% for i in data1 %}
+
+       <th >{{i.bookstatus}}</th>
+
+      {% endfor %}
+  </tr>
+<tr>
+    <th>Booking Date</th>
+        {% for i in data1 %}
+
+       <th >{{i.bookdate}}</th>
+
+      {% endfor %}
+  </tr>
+
+  </thead>
+   <tbody>
+   </table>
+   {% endblock %}

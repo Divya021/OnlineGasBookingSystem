@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Navigation Bar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+<style>
+
+.button {
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 12px;}
+.button2 {border-radius: 12px;}
+
+li a:hover:not(.active) {
+  background-color: green;
+  color: white;
+}
+
+
+li a.active {
+  background-color: green;
+  color: white;
+}
+th{
+background-color:DarkSlateGrey;
+color:white;
+}
+</style>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark" style="background-color:DarkSlateGrey;width:1800px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="{% static 'images/img_avatar3.png'%}" class="navbar-brand" style="width:100px;height:80px">
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="navbar-brand" style="color:Orange"><h4>Admin Pannel</h4></li>
+      <li class="navbar-brand"><a href="{% url 'home' %}" style="color:white">Home</a></li>
+      <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white">Products  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_product' %}">View Products</a></li>
+          <li><a href="{% url 'add_product' %}">Add Products</a></li>
+        </ul>
+      </li>
+      <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white">Booking  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'admin_viewBooking' %}">View Booking</a></li>
+        </ul>
+      </li>
+      <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white">Feedback  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_feedback' %}">View Customer Feedback</a></li>
+        </ul>
+      </li>
+
+      <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white">Customer  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'view_customer' %}">View Customer</a></li>
+        </ul>
+      </li>
+      <li class="navbar-brand"><a href="{% url 'logout_admin' %}" style="color:white">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

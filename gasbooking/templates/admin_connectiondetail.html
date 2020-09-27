@@ -1,0 +1,157 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            Registration Number
+        </div>
+
+        <div class="col-md-3">
+            {{data.registration}}
+        </div>
+
+         <div class="col-md-3">
+            Mobile Number
+        </div>
+
+        <div class="col-md-3">
+            {{data.user.mobile}}
+        </div>
+
+    </div>
+    <hr style="background-color:red;height:2px;color:red">
+    <div class="row">
+        <div class="col-md-3">
+            Name
+        </div>
+
+        <div class="col-md-3">
+            {{data.user.user.username}}
+        </div>
+         <div class="col-md-3">
+           Email
+        </div>
+
+        <div class="col-md-3">
+            {{data.user.user.email}}
+        </div>
+
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+     <div class="row">
+        <div class="col-md-3">
+          Gender
+        </div>
+
+        <div class="col-md-3">
+            {{data.gen}}
+        </div>
+
+        <div class="col-md-3">
+          Nationality
+        </div>
+
+        <div class="col-md-3">
+            {{data.nationality}}
+        </div>
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+     <div class="row">
+        <div class="col-md-3">
+           Married Status
+        </div>
+
+        <div class="col-md-3">
+                {{data.merriedstatus}}
+        </div>
+
+        <div class="col-md-3">
+          Address
+        </div>
+
+        <div class="col-md-3">
+            {{data.address}}
+        </div>
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+<div class="row">
+        <div class="col-md-3">
+         Address proof/ID Proof
+        </div>
+
+        <div class="col-md-3">
+            {{data.img.url}}
+        </div>
+
+        <div class="col-md-3">
+          Applied Date
+        </div>
+
+        <div class="col-md-3">
+            {{data.date}}
+        </div>
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+<h3 style="color:Blue;font-size:5px bold" align="center"> Spouse / Father Information</h3>
+       <hr style="background-color:red;height:2px;color:red">
+  <div class="row">
+        <div class="col-md-3">
+        First Name
+        </div>
+
+        <div class="col-md-3">
+            {{data.fname}}
+        </div>
+
+        <div class="col-md-3">
+          Last Name
+        </div>
+
+            {{data.lname}}
+        </div>
+    <hr style="background-color:red;height:2px;color:red">
+
+
+
+  <div class="row">
+        <div class="col-md-3">
+       City
+        </div>
+
+        <div class="col-md-3">
+            {{data.city}}
+        </div>
+
+        <div class="col-md-3">
+        Zipcode
+        </div>
+
+        <div class="col-md-3">
+            {{data.zipcode}}
+        </div>
+
+</div>
+    <hr style="background-color:red;height:2px;color:red">
+
+  <div class="row">
+        <div class="col-md-3">
+      Connection Status
+        </div>
+
+        <div class="col-md-3">
+              <button class="btn btn-primary" style="background-color:blue;width:50%;height:40px" > <a href="{% url 'edit_status' data.id %}" style="color:white">Edit Status</a></button>
+        </div>
+  </div>
+<hr style="background-color:red;height:2px;color:red">
+
+
+  </div>
+
+{% endblock %}

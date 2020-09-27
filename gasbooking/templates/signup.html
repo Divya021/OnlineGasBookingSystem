@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text],[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin:0px 400px;
+
+}
+</style>
+<body>
+
+<h3 style=" margin-left:590px;margin-top:80px">REGISTRATION </h3>
+<h4 style=" margin-left:570px;color:purple">Sign Up For A New Account</h4>
+
+
+<div>
+  <form action="" method="post">
+      {% csrf_token %}
+    <label for="fname">FULL NAME</label>
+    <input type="text" id="fname" name="uname" placeholder="full Name..">
+       <label for="fname">EMAIL ID</label>
+    <input type="text" id="fname" name="email" placeholder="email">
+ <label for="fname">MOBILE NO.</label>
+    <input type="text" id="fname" name="mobile" placeholder="mobile number">
+    <label for="lname">PASSWORD</label>
+    <input type="password" id="lname" name="pwd" placeholder="Password..">
+
+    <input type="submit" style="background-color:blue" value="login">
+  </form>
+</div>
+<h3 style=" margin-left:570px;color:purple">Online Gas Booking System!!!!</h3>
+
+
+</body>
+</html>

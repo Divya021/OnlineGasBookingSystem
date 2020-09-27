@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color:white">
+<nav class="navbar navbar-expand-sm" style="background-color:LightCoral">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#" style="color:orange">Online Book Shop</a>
+
+    <a class="navbar-link" href="#" style="color:orange">Cheap And Best</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}" style="color:white">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}" style="color:white">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact' %}" style="color:white">Contact</a>
+    </li>
+      {% if request.user.is_authenticated %}
+
+
+          <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_prifile' %}" style="color:white">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_booking' %}" style="color:white">View_Booking</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'send_feedback' request.user.id %}" style="color:white">Send feedback</a>
+    </li>
+       <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin_view_product' %}" style="color:white">View Product</a>
+    </li>
+       <li class="nav-item">
+      <a class="nav-link" href="{% url 'change_password' %}" style="color:white">Change Password</a>
+    </li>
+
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}" style="color:white">Logout</a>
+    </li>
+      <li class="nav-item" style="text-align:right">
+      <h5  class="nav-link" style="color:red;text-align:right">Welcome {{request.user.username}}</h5>
+
+      </li>
+        {% else %}
+        <li class="navbar-brand" style="color:red;text-align:right"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white;bottom-padding:18px">Login <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'login_admin' %}" style="color:red;text-align:right;margin:300px">Admin Login</a></li>
+          <li><a href="{% url 'login' %}" style="color:red;text-align:right;margin:300px">Customer Login</a></li>
+        </ul>
+      </li>
+
+        {% endif %}
+    </ul>
+</nav>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner" style="width:1550px;height:500px">
+    <div class="carousel-item active">
+      <img src="media/jokes1.jpg" alt="Los Angeles" style="height:500px">
+    </div>
+    <div class="carousel-item">
+      <img src="media/jokes2.jpg" alt="Chicago" style="height:500px">
+    </div>
+    <div class="carousel-item">
+      <img src="media/jokes3.jpg" alt="New York" style="height:500px">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <center><h3 style="color:red">Category</h3></center><hr style="color:white">
+        </div>
+{% for i in cat %}
+        <hr>
+        <div class="col-lg-3 col-md-4 col-sm-6"><hr>
+            <h5>{{i.name}}</h5>
+            <a href="{% url 'basekin' i.id %}" class="thumbnail">
+
+                <img src="{{i.image.url}}" style="width:250px;height:200px"><hr>
+            </a>
+
+        </div><hr>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

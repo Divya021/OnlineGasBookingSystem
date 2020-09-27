@@ -1,0 +1,60 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Book Cylinder </h1>
+
+</center>
+ <div class="container" style="margin-top:60px;width:100%">
+
+<table  class="table table-bordered" id="myTable">
+<thead style="background-color:white">
+  <tr>
+    <th style=" background-color:red">Connection Number</th>
+      {% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}
+       <th style=" background-color:red;color:white">{{i.registration}}</th>
+      {% endifequal %}
+      {% endfor %}
+  </tr>
+  <tr>
+    <th>Full Name</th>
+        {% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}`
+       <th >{{i.user.user.username}}</th>
+       {% endifequal %}
+      {% endfor %}
+  </tr>
+    <tr>
+    <th>Mobile Number</th>
+        {% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}
+    <th>{{i.user.mobile}}</th>
+        {% endifequal %}
+        {% endfor %}
+
+    </tr>
+  <tr>
+    <th>Email</th>
+     {% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}
+    <th>{{i.user.user.email}}</th>
+        {% endifequal %}
+        {% endfor %}
+  </tr>
+<tr>
+    <th>Shipping Address</th>
+     {% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}
+    <th>{{i.address}}</th>
+        {% endifequal %}
+        {% endfor %}
+  </tr>
+
+  </thead>
+   <tbody>
+   </table>
+<center>
+      <a href="{% url 'book' %}"><h1 style="font-size:25px; background-color:blue;height:35px;width:100px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva;width:50px" align="center"> Book </h1>
+
+</center>
+   {% endblock %}

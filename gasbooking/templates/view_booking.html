@@ -1,0 +1,49 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Booking History </h1>
+
+</center>
+ <div class="container" style="margin-top:60px;width:100%">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Connection Number</th>
+    <th>Full Name</th>
+    <th>Mobile Number</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data1 %}
+
+
+  <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.booknumber}}</td>
+        <td>{{i.user.user.user.username}}</td>
+        <td>{{i.user.user.mobile}}</td>
+        <td>{{i.user.user.user.email}}</td>
+        <td>{{i.bookstatus}}</td>
+        <td><a href="{% url 'bookhistory' %}"><i class="glyphicon glyphicon-record" style="color:black"></i> </a>
+  </tr>
+
+   {% endfor %}
+
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+  {% for i in message %}
+  alert("{{i}}")
+  {% endfor %}
+</script>
+
+{% endblock %}

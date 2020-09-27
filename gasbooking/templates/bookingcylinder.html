@@ -1,0 +1,47 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Book Cylinder </h1>
+
+</center>
+ <div class="container" style="margin-top:60px;width:100%">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Connection Number</th>
+    <th>Full Name</th>
+    <th>Mobile Number</th>
+    <th>Email</th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data1 %}
+ {% ifequal i.connection 'Approved' %}
+
+  <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.registration}}</td>
+        <td>{{i.user.user.username}}</td>
+        <td>{{i.user.mobile}}</td>
+        <td>{{i.user.user.email}}</td>
+        <td><a href="{% url 'bookdetail' %}"><button class="button button1">Book</button></a>
+  </tr>
+{% endifequal %}
+   {% endfor %}
+
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+  {% for i in message %}
+  alert("{{i}}")
+  {% endfor %}
+</script>
+
+{% endblock %}

@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Online Gas Booking System</title>
+
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link href="static/style.css" rel="stylesheet" type="text/css" media="all"/>
+
+        <link rel="stylesheet" href="static/style4.css">
+        <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+        <style>
+        #myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th {
+  text-align: left;
+  padding: 12px;
+  background-color:red ;
+  color: white;
+}
+
+
+#myTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: DarkSlateGrey;
+  color:white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+
+.footer {
+    margin-top:0px;
+    background-color:blue;
+    height:30px;
+    color:white
+}
+</style>
+    </head>
+
+    <body >
+
+
+
+        <div class="wrapper" style="width:100%">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar" style="background-color:blue">
+                <div style="padding:20px">
+    <img src="{% static 'image/logo.png' %}" style="width:40px;color:white"><span style="font-weight:bold;color:white;font-size:25px;margin-left:10px">OGBS</span>
+  </div>
+
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="{% url 'home' %}">
+                            <i class="glyphicon glyphicon-dashboard"></i>
+                           Dashboard
+                        </a>
+                    <li>
+                      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                             <i class="glyphicon glyphicon-user"></i>
+                           Delivery Staff
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="{% url 'add_staff' %}">Add Staff</a></li>
+                            <li><a href="{% url 'view_staff' %}">Manage Staff</a></li>
+                        </ul>
+                        <a href="#">
+                             <i class="glyphicon glyphicon-user"></i>
+                           Registared User
+                        </a>
+                        <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-send"></i>
+                            Connection
+                        </a>
+
+                        <ul class="collapse list-unstyled" id="pageSubmenu1">
+                            <li><a href="#">Add student</a></li>
+                            <li><a href="#">View student</a></li>
+                        </ul>
+
+
+                        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-print"></i>
+                            Booking
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu2">
+                            <li><a href="#">Add Teacher</a></li>
+                            <li><a href="#">View Teacher</a></li>
+                        </ul>
+                        <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-duplicate"></i>
+                            Assigned Booking
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu3">
+                            <li><a href="#">Add Staff</a></li>
+                            <li><a href="#">View Staff</a></li>
+                        </ul>
+                        <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-record"></i>
+                            Reports
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu4">
+                            <li><a href="#">Add  Staff Attendance</a></li>
+                            <li><a href="#">Add Teacher Attendance</a></li>
+                        </ul>
+                        <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false">
+                            <i class="glyphicon glyphicon-search"></i>
+                            Search
+                        </a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu5">
+                            <li><a href="#">View  Staff Attendance</a></li>
+                            <li><a href="#">View Teacher Attendance</a></li>
+                        </ul>
+
+                </li>
+
+
+                </ul>
+
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content" style="width:100%" >
+
+                <nav class="navbar navbar-default" style="width:100%;margin-bottom:5px">
+                    <div class="container-fluid" style="width:100%;background-color:blue;height:50px">
+
+                        <div class="navbar-header" >
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width:100%">
+                            <ul class="nav navbar-nav ">
+                                <li><a href="{% url 'home' %}" style="margin-left:100px;color:white">Home</a></li>
+                                <li><a href="{% url 'newconnection' %}" style="color:white">New Connection</a></li>
+                                <li><a href="#" style="color:white">Book Cylender</a></li>
+
+                                <li><a href="#" style="color:white"> Booking History</a></li>
+
+                        <li><a href="{% url 'admin_viewconnection' %}" >
+                            <i style="color:white;margin-left:180px;font-size:20px" class="glyphicon glyphicon-bell"></i>
+
+                        </a>
+                    </li>
+                            <li><a href="{% url 'admin_viewbooking' %}" >
+                            <i style="color:red;margin-left:20px;font-size:23px" class="glyphicon glyphicon-bell"></i>
+
+                        </a>
+                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                {% block body %}
+                {% endblock %}
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+    </body>
+</html>

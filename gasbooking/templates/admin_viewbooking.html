@@ -1,0 +1,48 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> VIEW BOOKING </h1>
+
+</center>
+ <div class="container" style="margin-top:60px;width:70%">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Registration Number</th>
+    <th>Full Name</th>
+    <th>Email Id</th>
+
+    <th>Action</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data1 %}
+
+  <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.user.registration}}</td>
+        <td>{{i.user.user.user.username}}</td>
+        <td>{{i.user.user.user.email}}</td>
+      {% ifnotequal i.bookstatus 'confirmed' %}
+        <td><a href="{% url 'admin_bookingdetail' i.id %}"><button class="button button1">View_detail</button></a>
+      {% else %}
+      <td>{{i.bookstatus}}</td>
+      {% endifnotequal %}
+  </tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+  {% for i in message %}
+  alert("{{i}}")
+  {% endfor %}
+</script>
+
+{% endblock %}

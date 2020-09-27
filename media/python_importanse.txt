@@ -1,0 +1,23 @@
+
+comment tag:
+"""
+This is a comment
+written in 
+more than just one line
+"""
+print("Hello, World!")
+
+
+Remember that variable names are case-sensitive
+
+ You cannot convert complex numbers into another number type.
+
+import random
+
+print(random.randrange(1,10))
+a = " Hello, World! "
+print(a.strip()) # returns "Hello, World!"
+
+age = 36
+txt = "My name is John, and I am {}"
+print(txt.format(age))

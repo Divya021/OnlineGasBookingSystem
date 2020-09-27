@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Online Gas Booking System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="static/style.css" rel="stylesheet" type="text/css" media="all"/>
+
+        <link rel="stylesheet" href="static/style4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th {
+  text-align: left;
+  padding: 12px;
+  background-color: green;
+  color: white;
+}
+
+
+#myTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.button {
+  background-color: DarkSlateGrey
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 15px;}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }<style>
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+.nav-link:hover{
+  color: yellow !important;
+  font-weight:bold;
+  background-color : red;
+  border-radius:10px
+}
+
+
+.navbar-brand:hover{
+  font-weight:bold;
+ 
+  
+}
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px opx;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: darkslategrey;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+</style>
+
+  
+  
+  
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm" style="margin:0;background-color:darkslategrey">
+
+      <a class="nav-link" href="#" style="color:white;font-family : 'Monotype Corsiva';margin-left:250px;font-size:30px;margin-top:4px">Online Gas Booking System</a>
+
+
+      <a class="nav-link" href="{% url 'home'  %}" style="color:white;margin-left:30%"><ion-icon style="margin-right:2px" name="home-sharp"></ion-icon>Home</a>
+
+      <a class="nav-link" href="{% url 'admin_login'  %}" style="color:white"><ion-icon style="background-color:white;margin-right:2px" name="list"></ion-icon>Admin</a>
+
+      <a class="nav-link" href="{% url 'login' %}" style="color:white"><ion-icon style="margin-right:2px" name="briefcase-sharp"></ion-icon>Customer</a>
+
+</nav>
+
+
+{% block body %}
+
+{% endblock %}
+
+
+
+</body></html>
